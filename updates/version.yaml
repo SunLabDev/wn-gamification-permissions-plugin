@@ -1,0 +1,4 @@
+1.0.1:
+    - First version of GamificationPermissions
+    - create_bcp_table.php
+    - create_bcp_permissions_table.php
