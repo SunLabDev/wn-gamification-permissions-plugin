@@ -1,9 +1,10 @@
 <?php namespace SunLab\GamificationPermissions;
 
-use Backend;
-use SunLab\GamificationPermissions\Models\BadgeConditionnedPermission;
+use Backend\Facades\Backend;
+use SunLab\GamificationPermissions\Models\BadgeConditionedPermission;
 use SunLab\Permissions\Models\Permission;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 use Winter\Storm\Database\Builder;
 use Winter\User\Models\User;
 
@@ -22,9 +23,9 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'GamificationPermissions',
-            'description' => 'No description provided yet...',
+            'description' => 'sunlab.gamificationpermissions::lang.plugin.description',
             'author'      => 'SunLab',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-hand-paper-o'
         ];
     }
 
@@ -37,7 +38,7 @@ class Plugin extends PluginBase
     {
         Permission::extend(static function ($permission) {
             $permission->belongsToMany['badges'] = [
-                BadgeConditionnedPermission::class,
+                BadgeConditionedPermission::class,
                 'table' => 'sunlab_gamificationpermissions_bcp_permissions'
             ];
         });
@@ -67,33 +68,26 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'sunlab.gamificationpermissions.some_permission' => [
+            'sunlab.gamificationpermissions.access_settings' => [
                 'tab' => 'GamificationPermissions',
-                'label' => 'Some permission'
+                'label' => 'sunlab.gamificationpermissions::lang.permission.label'
             ],
         ];
     }
 
-    /**
-     * Registers back-end navigation items for this plugin.
-     *
-     * @return array
-     */
-    public function registerNavigation()
+    public function registerSettings()
     {
-        return []; // Remove this line to activate
-
         return [
-            'gamificationpermissions' => [
-                'label'       => 'GamificationPermissions',
-                'url'         => Backend::url('sunlab/gamificationpermissions/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['sunlab.gamificationpermissions.*'],
+            'bcp' => [
+                'label'       => 'sunlab.gamificationpermissions::lang.settings.bcp.name',
+                'description' => 'sunlab.gamificationpermissions::lang.settings.bcp.description',
+                'category'    => SettingsManager::CATEGORY_SYSTEM,
+                'icon'        => 'icon-hand-paper-o',
+                'url'         => Backend::url('sunlab/gamificationpermissions/badgeconditionedpermissions'),
                 'order'       => 500,
-            ],
+                'permissions' => ['sunlab.gamificationpermissions.access_settings']
+            ]
         ];
     }
 }

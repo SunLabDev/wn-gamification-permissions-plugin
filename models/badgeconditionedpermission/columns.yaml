@@ -1,12 +1,12 @@
 columns:
     badge_name:
-        label: sunlab.gamification::lang.fields.badge
+        label: sunlab.gamificationpermissions::lang.fields.badge
         relation: badge
         select: name
         span: auto
 
     permissions_list:
-        label: sunlab.permissions::lang.permissions.menu_label
+        label: sunlab.gamificationpermissions::lang.fields.permissions
         relation: permissions
         select: label
         span: auto

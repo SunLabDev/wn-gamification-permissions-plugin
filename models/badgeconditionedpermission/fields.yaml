@@ -1,12 +1,12 @@
 fields:
     badge:
-        label: sunlab.gamification::lang.fields.badge
+        label: sunlab.gamificationpermissions::lang.fields.badge
         type: relation
         span: auto
 
     permissions:
-        label: sunlab.permissions::lang.fields.permissions
-        comment: sunlab.permissions::lang.fields.permissions_desc
+        label: sunlab.gamificationpermissions::lang.fields.permissions
+        comment: sunlab.gamificationpermissions::lang.fields.permissions_desc
         type: relation
         nameFrom: label
         span: auto
