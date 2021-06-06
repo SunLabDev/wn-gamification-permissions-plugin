@@ -1,7 +1,7 @@
 {
     "name": "sunlab/wn-gamification-permissions-plugin",
     "type": "winter-plugin",
-    "description": "Attribute permissions to gamification plugin for WinterCMS",
+    "description": "Assign permissions to gamification plugin for WinterCMS",
     "homepage": "https://github.com/sunlabdev/wn-gamification-permissions-plugin",
     "keywords": ["winter cms", "winter", "plugin", "gamification", "permissions"],
     "license": "MIT",
@@ -19,8 +19,8 @@
     "require": {
         "php": ">=7.0",
         "composer/installers": "~1.0",
-        "sunlab/wn-permissions-plugin": "dev-main",
-        "sunlab/wn-gamification-plugin": "dev-main"
+        "sunlab/wn-permissions-plugin": "^v1.0.0",
+        "sunlab/wn-gamification-plugin": "^v1.0.0"
     },
     "extra": {
         "installer-name": "gamificationpermissions"
