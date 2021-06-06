@@ -51,6 +51,6 @@ abstract class GamificationPermissionsPluginTestCase extends PluginTestCase
             'email' => 'user@user.com',
             'password' => 'abcd1234',
             'password_confirmation' => 'abcd1234'
-        ]);
+        ], true);
     }
 }
