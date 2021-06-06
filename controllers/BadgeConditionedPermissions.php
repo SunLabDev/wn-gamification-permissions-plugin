@@ -1,7 +1,8 @@
 <?php namespace SunLab\GamificationPermissions\Controllers;
 
-use BackendMenu;
 use Backend\Classes\Controller;
+use Backend\Facades\BackendMenu;
+use System\Classes\SettingsManager;
 
 /**
  * Badge Conditioned Permissions Back-end Controller
@@ -30,6 +31,8 @@ class BadgeConditionedPermissions extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('SunLab.GamificationPermissions', 'gamificationpermissions', 'badgeconditionedpermissions');
+
+        BackendMenu::setContext('Winter.System', 'system', 'settings');
+        SettingsManager::setContext('SunLab.GamificationPermissions', 'bcp');
     }
 }
