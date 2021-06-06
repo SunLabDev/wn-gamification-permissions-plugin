@@ -14,21 +14,19 @@ class GamificationPermissionsTest extends GamificationPermissionsPluginTestCase
 
         $bcp->permissions()->attach([$this->permission->id]);
 
+        $permissionsNeeded = $this->permission->code;
+
         // Update the model 5 times
         for ($i = 1; $i <= 5; $i++) {
             $this->user->email = "other-email${i}@test.com";
             $this->user->save();
 
-            // On the 4th updates, asserts it doesn't have the badge yet
+            // On the 4th updates, asserts it doesn't have the badge and permission yet
             if ($i === 4) {
                 $this->assertEmpty($this->user->badges->toArray());
+                $this->assertFalse($this->user->hasUserPermission($permissionsNeeded));
             }
         }
-
-        $permissionsNeeded = $this->permission->code;
-
-        $this->assertFalse($this->user->hasUserPermission($permissionsNeeded));
-        $this->user->permissions()->attach($this->permission->id);
 
         Db::flushDuplicateCache();
 
