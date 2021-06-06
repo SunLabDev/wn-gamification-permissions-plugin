@@ -52,5 +52,8 @@ abstract class GamificationPermissionsPluginTestCase extends PluginTestCase
             'password' => 'abcd1234',
             'password_confirmation' => 'abcd1234'
         ], true);
+
+        // Reset measure: the register methods already updated the model twice
+        $this->user->resetMeasure('user_updated');
     }
 }
