@@ -1,13 +1,18 @@
 <?php namespace SunLab\GamificationPermissions;
 
 use Backend;
+use SunLab\GamificationPermissions\Models\BadgeConditionnedPermission;
+use SunLab\Permissions\Models\Permission;
 use System\Classes\PluginBase;
+use Winter\Storm\Database\Builder;
+use Winter\User\Models\User;
 
 /**
  * GamificationPermissions Plugin Information File
  */
 class Plugin extends PluginBase
 {
+    public $require = ['SunLab.Permissions', 'SunLab.Gamification'];
     /**
      * Returns information about this plugin.
      *
@@ -24,37 +29,35 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Register method, called when the plugin is first registered.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
-    }
-
-    /**
      * Boot method, called right before the request route.
      *
      * @return array
      */
     public function boot()
     {
+        Permission::extend(static function ($permission) {
+            $permission->belongsToMany['badges'] = [
+                BadgeConditionnedPermission::class,
+                'table' => 'sunlab_gamificationpermissions_bcp_permissions'
+            ];
+        });
 
-    }
+        User::extend(static function (User $user) {
+            $user->bindEvent('model.relation.afterAttach', function (string $relationName, $ids) use ($user) {
+                if ($relationName === 'badges') {
+                    $correspondingPermissions =
+                        Permission::query()
+                                  ->whereHas('badges', static function (Builder $query) use ($ids) {
+                                      return $query->whereIn('badge_id', $ids);
+                                  })
+                                  ->get();
 
-    /**
-     * Registers any front-end components implemented in this plugin.
-     *
-     * @return array
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'SunLab\GamificationPermissions\Components\MyComponent' => 'myComponent',
-        ];
+                    if (!blank($correspondingPermissions)) {
+                        $user->permissions()->syncWithoutDetaching($correspondingPermissions);
+                    }
+                }
+            });
+        });
     }
 
     /**
