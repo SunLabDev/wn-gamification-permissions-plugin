@@ -1,14 +1,14 @@
 <?php namespace SunLab\GamificationPermissions\Tests\Unit\Facades;
 
 use Illuminate\Support\Facades\DB;
-use SunLab\GamificationPermissions\Models\BadgeConditionnedPermission;
+use SunLab\GamificationPermissions\Models\BadgeConditionedPermission;
 use SunLab\GamificationPermissions\Tests\GamificationPermissionsPluginTestCase;
 
 class GamificationPermissionsTest extends GamificationPermissionsPluginTestCase
 {
     public function testPermissionsIsGrantedWhenBadgeIsAssigned()
     {
-        $bcp = new BadgeConditionnedPermission;
+        $bcp = new BadgeConditionedPermission;
         $bcp->badge_id = $this->badge->id;
         $bcp->save();
 

@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('sunlab/gamificationpermissions/badgeconditionnedpermissions') ?>">Badge Conditionned Permissions</a></li>
+        <li><a href="<?= Backend::url('sunlab/gamificationpermissions/badgeconditionedpermissions') ?>">Badge Conditioned Permissions</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -14,6 +14,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('sunlab/gamificationpermissions/badgeconditionnedpermissions') ?>" class="btn btn-default">Return to badge conditionned permissions list</a></p>
+    <p><a href="<?= Backend::url('sunlab/gamificationpermissions/badgeconditionedpermissions') ?>" class="btn btn-default">Return to badge conditioned permissions list</a></p>
 
 <?php endif ?>

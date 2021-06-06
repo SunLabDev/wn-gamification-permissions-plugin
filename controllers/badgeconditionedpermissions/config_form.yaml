@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Badge Conditioned Permission
+
+# Model Form Field configuration
+form: $/sunlab/gamificationpermissions/models/badgeconditionedpermission/fields.yaml
+
+# Model Class name
+modelClass: SunLab\GamificationPermissions\Models\BadgeConditionedPermission
+
+# Default redirect location
+defaultRedirect: sunlab/gamificationpermissions/badgeconditionedpermissions
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: sunlab/gamificationpermissions/badgeconditionedpermissions/update/:id
+    redirectClose: sunlab/gamificationpermissions/badgeconditionedpermissions
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: sunlab/gamificationpermissions/badgeconditionedpermissions
+    redirectClose: sunlab/gamificationpermissions/badgeconditionedpermissions
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

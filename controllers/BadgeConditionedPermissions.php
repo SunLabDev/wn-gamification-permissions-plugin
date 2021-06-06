@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Badge Conditionned Permissions Back-end Controller
+ * Badge Conditioned Permissions Back-end Controller
  */
-class BadgeConditionnedPermissions extends Controller
+class BadgeConditionedPermissions extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.
@@ -30,6 +30,6 @@ class BadgeConditionnedPermissions extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('SunLab.GamificationPermissions', 'gamificationpermissions', 'badgeconditionnedpermissions');
+        BackendMenu::setContext('SunLab.GamificationPermissions', 'gamificationpermissions', 'badgeconditionedpermissions');
     }
 }

@@ -5,9 +5,9 @@ use SunLab\Gamification\Models\Badge;
 use SunLab\Permissions\Models\Permission;
 
 /**
- * BadgeConditionnedPermission Model
+ * BadgeConditionedPermission Model
  */
-class BadgeConditionnedPermission extends Model
+class BadgeConditionedPermission extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
 

@@ -10,7 +10,7 @@ class CreateBcpPermissionsTable extends Migration
     {
         Schema::create('sunlab_gamificationpermissions_bcp_permissions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('badge_conditionned_permission_id');
+            $table->unsignedBigInteger('badge_conditioned_permission_id');
             $table->unsignedBigInteger('permission_id');
         });
     }

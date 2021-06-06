@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/sunlab/gamificationpermissions/models/badgeconditionnedpermission/columns.yaml
+list: $/sunlab/gamificationpermissions/models/badgeconditionedpermission/columns.yaml
 
 # Model Class name
-modelClass: SunLab\GamificationPermissions\Models\BadgeConditionnedPermission
+modelClass: SunLab\GamificationPermissions\Models\BadgeConditionedPermission
 
 # List Title
-title: Manage Badge Conditionned Permissions
+title: Manage Badge Conditioned Permissions
 
 # Link URL for each record
-recordUrl: sunlab/gamificationpermissions/badgeconditionnedpermissions/update/:id
+recordUrl: sunlab/gamificationpermissions/badgeconditionedpermissions/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

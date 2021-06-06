@@ -4,7 +4,7 @@ use Winter\Storm\Database\Schema\Blueprint;
 use Winter\Storm\Database\Updates\Migration;
 use Winter\Storm\Support\Facades\Schema;
 
-class CreateBadgeConditionnedPermissionsTable extends Migration
+class CreateBadgeConditionedPermissionsTable extends Migration
 {
     public function up()
     {
