@@ -1,6 +1,6 @@
 <?php namespace SunLab\GamificationPermissions\Tests;
 
-use PluginTestCase;
+use System\Tests\Bootstrap\PluginTestCase;
 use SunLab\Gamification\Models\Badge;
 use SunLab\Measures\Models\ListenedEvent;
 use SunLab\Permissions\Models\Permission;
